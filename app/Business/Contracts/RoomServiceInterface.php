@@ -2,7 +2,7 @@
 
 namespace App\Business\Contracts;
 
-interface RoomServiceInterface
+interface RoomServiceInterface extends BaseServiceInterface
 {
 
 }

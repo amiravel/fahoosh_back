@@ -28,4 +28,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
     {
         $this->query = App::make($this->model)->newQuery();
     }
+
+    public function create(array $attributes): Model
+    {
+        return $this->query->create($attributes);
+    }
 }
