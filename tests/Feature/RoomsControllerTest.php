@@ -21,4 +21,13 @@ class RoomsControllerTest extends TestCase
             ->assertOk();
     }
 
+    public function testUserCanCreateNewRoom()
+    {
+        $room = Room::factory()->make();
+
+        $this->postJson(route('rooms.store'), $room->toArray())
+            ->assertJsonFragment($room->toArray())
+            ->assertCreated();
+    }
+
 }

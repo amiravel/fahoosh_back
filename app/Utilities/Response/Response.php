@@ -2,6 +2,7 @@
 
 namespace App\Utilities\Response;
 
+use Illuminate\Http\Response as JsonResponse;
 use Symfony\Component\HttpFoundation\Response as HttpResponseCode;
 
 class Response implements ResponseInterface
@@ -23,5 +24,13 @@ class Response implements ResponseInterface
                 'per_page' => method_exists($data, 'perPage') ? $data->perPage() : null,
             ]
         ], HttpResponseCode::HTTP_OK);
+    }
+
+    public function item($data): JsonResponse
+    {
+        return response([
+            'code' => HttpResponseCode::HTTP_CREATED,
+            'data' => $data
+        ], HttpResponseCode::HTTP_CREATED);
     }
 }

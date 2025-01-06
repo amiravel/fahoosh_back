@@ -4,6 +4,7 @@ namespace App\Business\Concrete;
 
 use App\Business\Contracts\BaseServiceInterface;
 use App\Repositories\Contracts\BaseRepositoryInterface;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseService implements BaseServiceInterface
 {
@@ -18,4 +19,10 @@ abstract class BaseService implements BaseServiceInterface
     {
         return $this->repository->paginate($page, $perPage);
     }
+
+    public function create(array $attributes): Model
+    {
+        return $this->repository->create($attributes);
+    }
+
 }
